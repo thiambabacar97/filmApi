@@ -28,5 +28,35 @@ class Film {
             })
         })
     }
+
+    static showFilm(id, table) {
+        const sql = `SELECT * FROM ${table} WHERE id = ?`
+        return new Promise((resolve, reject) => {
+            connection.query(sql, [id], (error, result) => {
+                if (error) reject(error);
+                resolve(result);
+            })
+        })
+    }
+
+    static deleteFilm(id, table) {
+        const sql = `DELETE FROM ${table} WHERE id = ?`;
+        return new Promise((resolve, reject) => {
+            connection.query(sql, [id], (error, result) => {
+                if (error) reject(error);
+                resolve(result);
+            })
+        })
+    }
+
+    static updateFilm(film, id, table) {
+        const sql = `UPDATE ${table} SET  title = ?, description = ?, photo = ?  WHERE id = ?`;
+        return new Promise((resolve, reject) => {
+            connection.query(sql, [film.title, film.description, film.photo, id], (error, result) => {
+                if (error) reject(error);
+                resolve(result);
+            })
+        })
+    }
 }
 module.exports = Film;
