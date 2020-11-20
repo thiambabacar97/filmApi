@@ -1,3 +1,5 @@
 /.env
 /node_modules
 /server.js
+/src/models/User.js
+/src/controlller/UserControlller.js
