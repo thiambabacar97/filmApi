@@ -15,4 +15,4 @@ app.use(express.static(path.join(__dirname, '/uplaod')));
 const baseUrl = '/api/v1';
 app.use(baseUrl, router);
 
-app.listen(process.env.APP_PORT || 3001, () => console.log(`serve renning in ${process.env.APP_PORT}`))
+app.listen(process.env.PORT || 3001, () => console.log(`serve renning in ${process.env.APP_PORT}`))
